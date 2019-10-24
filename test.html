@@ -140,34 +140,29 @@
         $("#currentDay").text(moment().format('dddd MMMM Do YYYY, h:mm a'));
 
         // Time comparison format
-        var format = "HA";
-        var time = moment();
-        // console.log(time);
-        var beforeTime = moment(19, format);
-        var afterTime = moment(21, format);
 
-        console.log(time, beforeTime, afterTime.format('hh:mm A'));
 
-        // if time is greater than beforetime but can't do if time is greater than beforetime.format
-        // .format is a string parse
-        // var currentTime = moment().format('h:mm A');
-        // var format = 'h:mm A';
-        // console.log(currentTime);
-
-        var hours = 9
+        var hours = 9;
         var test1 = moment.utc(hours * 3600 * 1000).format('HH:mm A');
-        // var test2 = moment.utc(hours * 2000 * 1000).format('HH:mm A');
+        // var testTime = parseInt(test1);
+        // console.log(testTime);
 
+
+
+        // console.log(test2);
         // Populates time formula into html
         $(".time-block").text(test1);
 
-        if (time < beforeTime) {
-            console.log("yes");
-        } else if (time > afterTime) {
-            console.log("no");
-        } else {
-            console.log("Same time");
-        };
+
+        // if (time < beforeTime) {
+        //     console.log("yes");
+        // } else if (time > afterTime) {
+        //     console.log("no");
+        // } else {
+        //     console.log("Same time");
+        // };
+
+
 
 // For dates
 // isSame();
