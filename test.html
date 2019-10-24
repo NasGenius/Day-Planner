@@ -29,7 +29,7 @@
                 <!-- Testing -->
 
                 <!-- Added time-block class -->
-                <span class="input-group-text time-block" id="inputGroup-sizing-lg"></span>
+                <span class="input-group-text time-block" id="inputGroup-sizing-lg">09:00 AM</span>
             </div>
             <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
             <input class="btn saveBtn" type="submit" value="Save">
@@ -132,6 +132,7 @@
         // Current time is always going to be less than end time
         // Difference between the two
         // For loop for starting time, it would only be able to loop up to the ending time, then what?
+        // How can we use moment duration to compare time?
 
 
         // Test: 
@@ -139,17 +140,49 @@
         moment(Date);
         $("#currentDay").text(moment().format('dddd MMMM Do YYYY, h:mm a'));
 
+        // Returns 24
+        // var d = moment.duration(1, "days");
+        // // Returns 8
+        // var d = moment.duration(8, "hours");
+        // console.log(d);
+        // d = d.asHours();
+        // console.log(d);
+
+        // var currentTime = moment();
+        // console.log(currentTime);
+        // currentTime = moment().format('h:mm A');
+        // console.log(currentTime);
+
+        var m = moment();
+        console.log("Original Moment: " + m.toString());
+        // add 
+        // m.add(4, "h").add(15, "m");
+        // // Subtract
+        // m.subtract(4, "h").add(15, "m");
+
+        // Turns hour back to zero. 12:30 would become 12:00
+        // m.startOf("hour");
+
+        // Gives time as 23:59
+        // m.endOf("day");
+
+        // Changes how time is displayed
+        // m.utc();
+
+        console.log("After Moment: " + m.toString());
+
+
         // Time comparison format
         // var currentTime = moment().format('h:mm A');
 
-        var hours = 9;
-        var test1 = moment.utc(hours * 3600 * 1000).format('HH:mm A');
+        // var hours = 9;
+        // var test1 = moment.utc(hours * 3600 * 1000).format('HH:mm A');
         // var testTime = parseInt(test1);
         // console.log(testTime);
 
         // console.log(test2);
         // Populates time formula into html
-        $(".time-block").text(test1);
+        // $(".time-block").text(test1);
 
 
         // if (time < beforeTime) {

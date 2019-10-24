@@ -29,7 +29,7 @@
                 <!-- Testing -->
 
                 <!-- Added time-block class -->
-                <span class="input-group-text time-block" id="inputGroup-sizing-lg"></span>
+                <span class="input-group-text time-block block1" id="inputGroup-sizing-lg"></span>
             </div>
             <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
             <input class="btn saveBtn" type="submit" value="Save">
@@ -38,7 +38,7 @@
         <!-- Timeblocks go here -->
         <div class="input-group input-group-lg">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-lg">10:00 AM</span>
+                <span class="input-group-text time-block block2" id="inputGroup-sizing-lg"></span>
             </div>
             <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
             <input class="btn saveBtn" type="submit" value="Save">
@@ -47,7 +47,7 @@
         <!-- Timeblocks go here -->
         <div class="input-group input-group-lg">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-lg">11:00 AM</span>
+                <span class="input-group-text time-block block3" id="inputGroup-sizing-lg"></span>
             </div>
             <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
             <input class="btn saveBtn" type="submit" value="Save">
@@ -56,7 +56,7 @@
         <!-- Timeblocks go here -->
         <div class="input-group input-group-lg">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-lg">12:00 PM</span>
+                <span class="input-group-text time-block block4" id="inputGroup-sizing-lg"></span>
             </div>
             <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
             <input class="btn saveBtn" type="submit" value="Save">
@@ -65,7 +65,7 @@
         <!-- Timeblocks go here -->
         <div class="input-group input-group-lg">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-lg">01:00 PM</span>
+                <span class="input-group-text time-block block5" id="inputGroup-sizing-lg"></span>
             </div>
             <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
             <input class="btn saveBtn" type="submit" value="Save">
@@ -74,7 +74,7 @@
         <!-- Timeblocks go here -->
         <div class="input-group input-group-lg">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-lg">02:00 PM</span>
+                <span class="input-group-text time-block block6" id="inputGroup-sizing-lg"></span>
             </div>
             <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
             <input class="btn saveBtn" type="submit" value="Save">
@@ -83,7 +83,7 @@
         <!-- Timeblocks go here -->
         <div class="input-group input-group-lg">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-lg">03:00 PM</span>
+                <span class="input-group-text time-block block7" id="inputGroup-sizing-lg"></span>
             </div>
             <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
             <input class="btn saveBtn" type="submit" value="Save">
@@ -92,7 +92,7 @@
         <!-- Timeblocks go here -->
         <div class="input-group input-group-lg">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-lg">04:00 PM</span>
+                <span class="input-group-text time-block block8" id="inputGroup-sizing-lg"></span>
             </div>
             <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
             <input class="btn saveBtn" type="submit" value="Save">
@@ -101,7 +101,7 @@
         <!-- Timeblocks go here -->
         <div class="input-group input-group-lg">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-lg">05:00 PM</span>
+                <span class="input-group-text time-block block9" id="inputGroup-sizing-lg"></span>
             </div>
             <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
             <input class="btn saveBtn" type="submit" value="Save">
@@ -110,14 +110,62 @@
 
         </div>
     </div>
-    <!-- Test Scroll-->
-    <!-- <div id="other"></div> -->
+    <!-- Test localStorage-->
+    <div class="small-container">
+        <h1>New Tab App</h1>
+
+        <form>
+            <input id="item" type="text" placeholder="New" required />
+        </form>
+
+        <h2>Items</h2>
+        <ul></ul>
+
+        <button>Clear All</button>
+    </div>
 
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script>
+
+        // Test Local
+        const form = document.querySelector('form')
+        const ul = document.querySelector('ul')
+        const button = document.querySelector('button')
+        const input = document.getElementById('item')
+        let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : []
+
+        localStorage.setItem('items', JSON.stringify(itemsArray))
+        const data = JSON.parse(localStorage.getItem('items'))
+
+        const liMaker = text => {
+            const li = document.createElement('li')
+            li.textContent = text
+            ul.appendChild(li)
+        }
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault()
+
+            itemsArray.push(input.value)
+            localStorage.setItem('items', JSON.stringify(itemsArray))
+            liMaker(input.value)
+            input.value = ''
+        })
+
+        data.forEach(item => {
+            liMaker(item)
+        })
+
+        button.addEventListener('click', function () {
+            localStorage.clear()
+            while (ul.firstChild) {
+                ul.removeChild(ul.firstChild)
+            }
+        })
+
         // Psuedo code
         // Find out of Moment.js needs further installation
         // Start with Document onload?
@@ -140,13 +188,21 @@
         $("#currentDay").text(moment().format('dddd MMMM Do YYYY, h:mm a'));
 
         // Time comparison format
-        var format = "HA";
-        var time = moment();
-        // console.log(time);
-        var beforeTime = moment(19, format);
-        var afterTime = moment(21, format);
+        // var format = "HA";
+        var CurrentTime = moment();
+        // Turns hour back to zero. 12:30 would become 12:00
 
-        console.log(time, beforeTime, afterTime.format('hh:mm A'));
+        // console.log(time);
+        // var beforeTime = moment(9, format);
+        var beforeTime = moment().startOf('day').add(9, "hours");
+        // var afterTime = moment(17, format);
+        var afterTime = moment().startOf('day').add(17, "hours");
+        console.log(beforeTime);
+        console.log(beforeTime.format('hh:mm A'));
+        console.log(afterTime);
+        console.log(afterTime.format('hh:mm A'));
+
+        console.log(CurrentTime, beforeTime, afterTime.format('hh:mm A'));
 
         // if time is greater than beforetime but can't do if time is greater than beforetime.format
         // .format is a string parse
@@ -154,20 +210,87 @@
         // var format = 'h:mm A';
         // console.log(currentTime);
 
-        var hours = 9
-        var test1 = moment.utc(hours * 3600 * 1000).format('HH:mm A');
-        // var test2 = moment.utc(hours * 2000 * 1000).format('HH:mm A');
-
+        // Time blocks
+        // Can I loop this?
+        // 9 AM 
+        var time1 = beforeTime.add(0, "h");
+        time1 = time1.format('hh:mm A');
         // Populates time formula into html
-        $(".time-block").text(test1);
+        $(".block1").text(time1);
+        // 10 AM
+        var time2 = beforeTime.add(1, "h");
+        time2 = time2.format('hh:mm A');
+        // Populates time formula into html
+        $(".block2").text(time2);
+        // 11 AM
+        var time3 = beforeTime.add(1, "h");
+        time3 = time3.format('hh:mm A');
+        // Populates time formula into html
+        $(".block3").text(time3);
+        // 12 PM
+        var time4 = beforeTime.add(1, "h");
+        time4 = time4.format('hh:mm A');
+        // Populates time formula into html
+        $(".block4").text(time4);
+        // 1 PM
+        var time5 = beforeTime.add(1, "h");
+        time5 = time5.format('hh:mm A');
+        // Populates time formula into html
+        $(".block5").text(time5);
+        // 2 PM
+        var time6 = beforeTime.add(1, "h");
+        time6 = time6.format('hh:mm A');
+        // Populates time formula into html
+        $(".block6").text(time6);
+        // 3 PM
+        var time7 = beforeTime.add(1, "h");
+        time7 = time7.format('hh:mm A');
+        // Populates time formula into html
+        $(".block7").text(time7);
+        // 4 PM
+        var time8 = beforeTime.add(1, "h");
+        time8 = time8.format('hh:mm A');
+        // Populates time formula into html
+        $(".block8").text(time8);
+        // 5 PM
+        var time9 = beforeTime.add(1, "h");
+        time9 = time9.format('hh:mm A');
+        // Populates time formula into html
+        $(".block9").text(time9);
 
-        if (time > beforeTime) {
-            console.log("yes");
-        } else if (time < afterTime) {
-            console.log("no");
-        } else {
-            console.log("Same time");
-        };
+
+        // // If statement - not working
+        // if (CurrentTime.isAfter(beforeTime)) {
+        //     console.log("yes");
+        // }
+
+        // if (CurrentTime.isBefore(afterTime)) {
+        //     console.log("no");
+        // }
+
+        // if (CurrentTime.isSame(CurrentTime)) {
+        //     console.log("Same time");
+        // };
+
+        // wrong format
+        function checkTime() {
+            CurrentTime = CurrentTime.startOf("hour");
+            console.log(CurrentTime);
+            // time5 = time5.startOf("hour");
+            console.log(time5);
+            if (CurrentTime == time5) {
+                console.log("Yes");
+            } else {
+                console.log("wrong format");
+            }
+        }
+        checkTime();
+
+        // for (var i = d; i < afterTime; i++) {
+
+        //     console.log(afterTime);
+
+        // }
 
         // For dates
         // isSame();
@@ -222,7 +345,6 @@
         $(inputBtn).click(function () {
 
             var infoIn = inputForm;
-            console.log(inputIn);
 
             if (infoIn === null) {
 
@@ -240,18 +362,14 @@
                 } else {
                     allInfo = JSON.parse(allInfo);
                 }
-                allInfo.push(finalScore);
+                allInfo.push(saveInfo);
                 var newInfo = JSON.stringify(allInfo);
 
                 localStorage.setItem("allInfo", newInfo);
-
-
             }
-
         });
 
         // submit
-
 
 
         // var aValue = storage.getItem(inputName);
