@@ -110,62 +110,12 @@
 
         </div>
     </div>
-    <!-- Test localStorage-->
-    <div class="small-container">
-        <h1>New Tab App</h1>
-
-        <form>
-            <input id="item" type="text" placeholder="New" required />
-        </form>
-
-        <h2>Items</h2>
-        <ul></ul>
-
-        <button>Clear All</button>
-    </div>
 
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script>
-
-        // Test Local
-        const form = document.querySelector('form')
-        const ul = document.querySelector('ul')
-        const button = document.querySelector('button')
-        const input = document.getElementById('item')
-        let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : []
-
-        localStorage.setItem('items', JSON.stringify(itemsArray))
-        const data = JSON.parse(localStorage.getItem('items'))
-
-        const liMaker = text => {
-            const li = document.createElement('li')
-            li.textContent = text
-            ul.appendChild(li)
-        }
-
-        form.addEventListener('submit', function (e) {
-            e.preventDefault()
-
-            itemsArray.push(input.value)
-            localStorage.setItem('items', JSON.stringify(itemsArray))
-            liMaker(input.value)
-            input.value = ''
-        })
-
-        data.forEach(item => {
-            liMaker(item)
-        })
-
-        button.addEventListener('click', function () {
-            localStorage.clear()
-            while (ul.firstChild) {
-                ul.removeChild(ul.firstChild)
-            }
-        })
-
         // Psuedo code
         // Find out of Moment.js needs further installation
         // Start with Document onload?
@@ -343,6 +293,7 @@
         var inputForm = $(".form-control").text();
 
         $(inputBtn).click(function () {
+            event.preventDefault();
 
             var infoIn = inputForm;
 
@@ -352,7 +303,6 @@
             } else {
                 var saveInfo = {
                     info: info,
-                    text: text
                 }
                 console.log(saveInfo);
                 var allInfo = localStorage.getItem("allInfo");
