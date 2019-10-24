@@ -161,18 +161,18 @@
         // Populates time formula into html
         $(".time-block").text(test1);
 
-        if (time < beforeTime) {
+        if (time > beforeTime) {
             console.log("yes");
-        } else if (time > afterTime) {
+        } else if (time < afterTime) {
             console.log("no");
         } else {
             console.log("Same time");
         };
 
-// For dates
-// isSame();
-// isBefore();
-// isAfter();
+        // For dates
+        // isSame();
+        // isBefore();
+        // isAfter();
         // for (var i = 0; i < test1; i++) {
         //     // $(".time-block").text(test1);
         //     console.log(test1);
@@ -215,26 +215,56 @@
         // Test local storage
         // Set storage
 
+        // Local Storage not working 
+        var inputBtn = $(".btn").val();
+        var inputForm = $(".form-control").text();
+
+        $(inputBtn).click(function () {
+
+            var infoIn = inputForm;
+            console.log(inputIn);
+
+            if (infoIn === null) {
+
+                console.log("No value entered!");
+            } else {
+                var saveInfo = {
+                    info: info,
+                    text: text
+                }
+                console.log(saveInfo);
+                var allInfo = localStorage.getItem("allInfo");
+
+                if (allInfo === null) {
+                    allInfo = [];
+                } else {
+                    allInfo = JSON.parse(allInfo);
+                }
+                allInfo.push(finalScore);
+                var newInfo = JSON.stringify(allInfo);
+
+                localStorage.setItem("allInfo", newInfo);
 
 
-        // $("btn").click(function () {
-        //     var inputValue = $(".btn").val();
-        //     console.log(inputValue);
-        //     storage.setItem(inputName, inputValue);
-        // });
+            }
 
-        //   function populateStorage() {
-        //   localStorage.setItem('bgcolor', 'red');
-        //   localStorage.setItem('font', 'Helvetica');
-        //   localStorage.setItem('image', 'myCat.png');
-        // }
+        });
+
+        // submit
+
+
 
         // var aValue = storage.getItem(inputName);
 
-// Store
-// localStorage.setItem("lastname", "Smith");
-// // Retrieve
-// document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+        // Store
+        // localStorage.setItem("lastname", "Smith");
+        // // Retrieve
+        // document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+
+        // Reviewing local storage
+
+        // submit
+
 
     </script>
 </body>
