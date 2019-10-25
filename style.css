@@ -71,6 +71,6 @@ body {
   }
 
   .container {
-    overflow: scroll;
+    margin-bottom: 10%;
   }
   
