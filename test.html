@@ -451,18 +451,28 @@
 
 
         $(".saveBtn").click(function () {
-            //     event.preventDefault();
+            event.preventDefault();
             console.log("This worked")
         });
 
 
-        var itemEntry = "Test";
+        var itemEntry = [];
 
         localStorage.setItem("item", itemEntry);
 
         var inputForm = document.querySelector(".form-control");
 
         itemEntry = localStorage.getItem("item");
+
+        var myObject = {
+            Item: "memo"
+        };
+
+        itemEntry = JSON.parse(itemEntry);
+
+        var myObjectString = JSON.stringify(itemEntry);
+
+
         // submit
 
         // Video example: 
