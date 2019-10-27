@@ -13,7 +13,9 @@
     <script src="https://kit.fontawesome.com/d3bce829f3.js" crossorigin="anonymous"></script>
     <title>Work Day Scheduler</title>
     <style>
-
+        /* input {
+            width: 100%;
+        } */
     </style>
 </head>
 
@@ -24,437 +26,67 @@
         <p id="currentDay" class="lead"></p>
     </header>
     <div class="container">
-        <!-- 9AM Timeblocks go here -->
-        <div class="input-group input-group-lg" data-hour="9">
-            <div class="input-group-prepend">
-                <!-- Added time-block class -->
-                <span class="input-group-text time-block block1" id="inputGroup-sizing-lg"></span>
-            </div>
-            <input type="text" class="form-control form9" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-            <!-- <input class="btn saveBtn" type="submit" value="Save"> -->
-            <button class="btn saveBtn"><i class="far fa-save"></i></button>
-            <!-- Use Favacon for save icon-->
-        </div>
-        <!-- 10AM Timeblocks go here -->
-        <div class="input-group input-group-lg" data-hour="10">
-            <div class="input-group-prepend">
-                <span class="input-group-text time-block block2" id="inputGroup-sizing-lg"></span>
-            </div>
-            <input type="text" class="form-control form10" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-            <button class="btn saveBtn"><i class="far fa-save"></i></button>
-            <!-- Use Favacon for save icon-->
-        </div>
-        <!-- 11AM Timeblocks go here -->
-        <div class="input-group input-group-lg" data-hour="11">
-            <div class="input-group-prepend">
-                <span class="input-group-text time-block block3" id="inputGroup-sizing-lg"></span>
-            </div>
-            <input type="text" class="form-control form11" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-            <button class="btn saveBtn"><i class="far fa-save"></i></button>
-            <!-- Use Favacon for save icon-->
-        </div>
-        <!-- 12PM Timeblocks go here -->
-        <div class="input-group input-group-lg" data-hour="12">
-            <div class="input-group-prepend">
-                <span class="input-group-text time-block block4" id="inputGroup-sizing-lg"></span>
-            </div>
-            <input type="text" class="form-control form12" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-            <button class="btn saveBtn"><i class="far fa-save"></i></button>
-            <!-- Use Favacon for save icon-->
-        </div>
-        <!-- 1PM Timeblocks go here -->
-        <div class="input-group input-group-lg" data-hour="1">
-            <div class="input-group-prepend">
-                <span class="input-group-text time-block block5" id="inputGroup-sizing-lg"></span>
-            </div>
-            <input type="text" class="form-control form1" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-            <button class="btn saveBtn"><i class="far fa-save"></i></button>
-            <!-- Use Favacon for save icon-->
-        </div>
-        <!-- 2PM Timeblocks go here -->
-        <div class="input-group input-group-lg" data-hour="2">
-            <div class="input-group-prepend">
-                <span class="input-group-text time-block block6" id="inputGroup-sizing-lg"></span>
-            </div>
-            <input type="text" class="form-control form2" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-            <button class="btn saveBtn"><i class="far fa-save"></i></button>
-            <!-- Use Favacon for save icon-->
-        </div>
-        <!-- 3PM Timeblocks go here -->
-        <div class="input-group input-group-lg" data-hour="3">
-            <div class="input-group-prepend">
-                <span class="input-group-text time-block block7" id="inputGroup-sizing-lg"></span>
-            </div>
-            <input type="text" class="form-control form3" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-            <button class="btn saveBtn"><i class="far fa-save"></i></button>
-            <!-- Use Favacon for save icon-->
-        </div>
-        <!-- 4PM Timeblocks go here -->
-        <div class="input-group input-group-lg" data-hour="4">
-            <div class="input-group-prepend">
-                <span class="input-group-text time-block block8" id="inputGroup-sizing-lg"></span>
-            </div>
-            <input type="text" class="form-control form4" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-            <button class="btn saveBtn"><i class="far fa-save"></i></button>
-            <!-- Use Favacon for save icon-->
-        </div>
-        <!-- 5PM Timeblocks go here -->
-        <div class="input-group input-group-lg" data-hour="5">
-            <div class="input-group-prepend">
-                <span class="input-group-text time-block block9" id="inputGroup-sizing-lg"></span>
-            </div>
-            <input type="text" class="form-control form5" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-            <button class="btn saveBtn"><i class="far fa-save"></i></button>
-            <!-- Use Favacon for save icon-->
 
-
-        </div>
     </div>
-
-    <!-- Test Scroll-->
-    <!-- <div id="other"></div> -->
-
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script>
-        // Psuedo code
-        // Find out of Moment.js needs further installation
-        // Start with Document onload?
-        // Look up Javscript Calendar, write steps down and find matching Jquery methods?
-        // Variables unknown until step above is complete
-        // Needs start time
-        // Needs end time
-        // Needs current time  
-        // Needs to compare each hour to current time, and determine if it is 
-        // Current time is always going to be more than start time
-        // Current time is always going to be less than end time
-        // Difference between the two
-        // For loop for starting time, it would only be able to loop up to the ending time, then what?
-        // How can we use moment duration to compare time?
 
-
-        // Test: 
         // Top date, works
         moment(Date);
         $("#currentDay").text(moment().format('dddd MMMM Do YYYY, h:mm a'));
-
 
         var currentTime = moment();
         currentTime = currentTime.startOf("hour");
         // Turns hour back to zero. 12:30 would become 12:00
 
-        // console.log(time);
-        // var beforeTime = moment(9, format);
-        // var x = [9, 10, 11, 12, 13, 14, 15, 16, 17];
-        var beforeTime = moment().startOf('day').add(9, "hours");
-        // var beforeTime = moment().startOf('day').add(x, "hours");
-        // var afterTime = moment(17, format);
-        // var afterTime = moment().startOf('day').add(17, "hours");
-        // console.log(beforeTime);
-        // console.log(beforeTime.format('hh:mm A'));
-        // console.log(afterTime);
-        // console.log(afterTime.format('hh:mm A'));
 
-        // console.log(CurrentTime, beforeTime, afterTime.format('hh:mm A'));
+        var x2 = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 
+        x2.forEach(function (time) {
 
-        // Test loop:
-        // Recreate the HTML for the time block
-        // var x2 = [9, 10, 11, 12, 13, 14, 15, 16, 17];
-        // for (var i = 0; i < x2.length; i++) {
-        //     var beforeTime = moment().startOf('day').add(x2[i], "hours");
-        //     console.log(beforeTime);
-        //     console.log(x2);
-        //     var time1 = beforeTime;
-        //     time1 = time1.format('hh:mm A');
-        //     $(".block1").text(time1);
-        // }
+            var newTime = [];
+            newTime.push(moment().hour(time).minutes("00").format('hh:mm A'));
 
+            // Add Elements
+            var newDiv = $("<div>");
+            newDiv.addClass("input-group input-group-lg pb-1");
 
+            var addSpan = $("<span>");
+            addSpan.addClass("input-group-text time-block block");
 
-        // Time blocks
-        // Can I loop this?
-        // 9 AM 
-        var time1 = beforeTime.add(0, "h");
-        // // var time1 = beforeTime;
-        time1 = time1.format('hh:mm A');
-        // // Populates time formula into html
-        $(".block1").text(time1);
-        // 10 AM
-        var time2 = beforeTime.add(1, "h");
-        time2 = time2.format('hh:mm A');
-        // Populates time formula into html
-        $(".block2").text(time2);
-        // 11 AM
-        var time3 = beforeTime.add(1, "h");
-        time3 = time3.format('hh:mm A');
-        // Populates time formula into html
-        $(".block3").text(time3);
-        // 12 PM
-        var time4 = beforeTime.add(1, "h");
-        time4 = time4.format('hh:mm A');
-        // Populates time formula into html
-        $(".block4").text(time4);
-        // 1 PM
-        var time5 = beforeTime.add(1, "h");
-        time5 = time5.format('hh:mm A');
-        // Populates time formula into html
-        $(".block5").text(time5);
-        // 2 PM
-        var time6 = beforeTime.add(1, "h");
-        time6 = time6.format('hh:mm A');
-        // Populates time formula into html
-        $(".block6").text(time6);
-        // 3 PM
-        var time7 = beforeTime.add(1, "h");
-        time7 = time7.format('hh:mm A');
-        // Populates time formula into html
-        $(".block7").text(time7);
-        // 4 PM
-        var time8 = beforeTime.add(1, "h");
-        time8 = time8.format('hh:mm A');
-        // Populates time formula into html
-        $(".block8").text(time8);
-        // 5 PM
-        var time9 = beforeTime.add(1, "h");
-        time9 = time9.format('hh:mm A');
-        // Populates time formula into html
-        $(".block9").text(time9);
+            var inputText = $('<input>').attr('type', 'text');
+            inputText.addClass("form-control form");
 
-        // Function to compare hour slots with current time 
-        // Update these to coordinating numbers
-        function testTime() {
-            // Add time1 9AM
-            time1 = moment().startOf('day').add(9, "hours");
-            // Adjusts current time to the hour
-            currentTime = currentTime.startOf("hour");
-            // Add time1 if/else
-            if (currentTime.isAfter(time1)) {
-                $(".form9").addClass("past");
+            var inputSubmit = $('<input>').attr('type', 'submit');
+            inputSubmit.addClass("btn saveBtn");
+
+            var icon = $("<i>");
+            icon.addClass("far fa-save");
+
+            // appends here: 
+            $(".container").append(newDiv);
+            newDiv.append(addSpan);
+            newDiv.append(inputText);
+            newDiv.append(inputSubmit);
+            inputSubmit.append(icon);
+            addSpan.text(newTime);
+            // If/Else Statement
+            if (currentTime.isAfter(newTime)) {
+                $(".form").addClass("past");
             }
-            else if (currentTime.isBefore(time1)) {
-                $(".form9").addClass("future");
+            else if (currentTime.isBefore(newTime)) {
+                $(".form").addClass("future");
             }
-            else if (currentTime.isSame(time1)) {
-                $(".form9").addClass("present");
+            else if (currentTime.isSame(newTime)) {
+                $(".form").addClass("present");
             };
-            // Add time2 10AM
-            time2 = moment().startOf('day').add(10, "hours");
-            // Add time2 if/else
-            if (currentTime.isAfter(time2)) {
-                $(".form10").addClass("past");
-            }
-            else if (currentTime.isBefore(time2)) {
-                $(".form10").addClass("future");
-            }
-            else if (currentTime.isSame(time2)) {
-                $(".form10").addClass("present");
-            };
-            // time3 11AM
-            time3 = moment().startOf('day').add(11, "hours");
-            // Add time3 if/else
-            if (currentTime.isAfter(time3)) {
-                $(".form11").addClass("past");
-            }
-            else if (currentTime.isBefore(time3)) {
-                $(".form11").addClass("future");
-            }
-            else if (currentTime.isSame(time3)) {
-                $(".form11").addClass("present");
-            };
-            // time4 12PM
-            time4 = moment().startOf('day').add(12, "hours");
-            // Add time4 if/else
-            if (currentTime.isAfter(time4)) {
-                $(".form12").addClass("past");
-            }
-            else if (currentTime.isBefore(time4)) {
-                $(".form12").addClass("future");
-            }
-            else if (currentTime.isSame(time4)) {
-                $(".form12").addClass("present");
-            };
-            // time5 1PM
-            time5 = moment().startOf('day').add(13, "hours");
-            // Add time5 if/else
-            if (currentTime.isAfter(time5)) {
-                $(".form1").addClass("past");
-            }
-            else if (currentTime.isBefore(time5)) {
-                $(".form1").addClass("future");
-            }
-            else if (currentTime.isSame(time5)) {
-                $(".form1").addClass("present");
-            };
-            // time6 2PM
-            time6 = moment().startOf('day').add(14, "hours");
-            // Add time6 if/else
-            if (currentTime.isAfter(time6)) {
-                $(".form2").addClass("past");
-            }
-            else if (currentTime.isBefore(time6)) {
-                $(".form2").addClass("future");
-            }
-            else if (currentTime.isSame(time6)) {
-                $(".form2").addClass("present");
-            };
-            // time7 3M
-            time7 = moment().startOf('day').add(15, "hours");
-            // Add time7 if/else
-            if (currentTime.isAfter(time7)) {
-                $(".form3").addClass("past");
-            }
-            else if (currentTime.isBefore(time7)) {
-                $(".form3").addClass("future");
-            }
-            else if (currentTime.isSame(time7)) {
-                $(".form3").addClass("present");
-            };
-            // time8 4pm
-            time8 = moment().startOf('day').add(16, "hours");
-            // Add time8 if/else
-            if (currentTime.isAfter(time8)) {
-                $(".form4").addClass("past");
-            }
-            else if (currentTime.isBefore(time8)) {
-                $(".form4").addClass("future");
-            }
-            else if (currentTime.isSame(time8)) {
-                $(".form4").addClass("present");
-            };
-            // time9 5pm
-            time9 = moment().startOf('day').add(17, "hours");
-            // Add time9 if/else
-            if (currentTime.isAfter(time9)) {
-                $(".form5").addClass("past");
-            }
-            else if (currentTime.isBefore(time9)) {
-                $(".form5").addClass("future");
-            }
-            else if (currentTime.isSame(time9)) {
-                $(".form5").addClass("present");
-            };
-        }
-        testTime();
 
+        });
 
-
-        // // If statement - not working
-        // if (CurrentTime.isAfter(beforeTime)) {
-        //     console.log("yes");
-        // }
-
-        // if (CurrentTime.isBefore(afterTime)) {
-        //     console.log("no");
-        // }
-
-        // if (CurrentTime.isSame(CurrentTime)) {
-        //     console.log("Same time");
-        // };
-
-        // wrong format
-        // function checkTime() {
-        //     CurrentTime = CurrentTime.startOf("hour");
-        //     console.log(CurrentTime);
-        //     // time5 = time5.startOf("hour");
-        //     console.log(time5);
-        //     if (CurrentTime == time5) {
-        //         console.log("Yes");
-        //     } else {
-        //         console.log("wrong format");
-        //     }
-        // }
-        // checkTime();
-
-        // for (var i = d; i < afterTime; i++) {
-
-        //     console.log(afterTime);
-
-        // }
-
-        // For dates
-        // isSame();
-        // isBefore();
-        // isAfter();
-        // for (var i = 0; i < test1; i++) {
-        //     // $(".time-block").text(test1);
-        //     console.log(test1);
-
-        // }
-
-        // if (moment(test1).isBefore(currentTime)) {
-        //     console.log(yes);
-        // };
-
-        // Condition: 
-        // if time is before current time. Set class to bg-danger 
-        // else if time is after current time. Set class to success 
-        // Separate variable for each time 
-
-        // function compareInput() {
-        //     // test1 = moment.utc(hours * 3600 * 1000).format('h:mm A');
-        //     console.log(test1);
-
-        //     if (moment(test1).isBefore(currentTime)) {
-        //         console.log("yes");
-        //     } else {
-        //         console.log("no");
-        //     }
-
-        // };
-
-        // compareInput();
-
-        // Test Scroll - does not work
-        // $("#other").click(function () {
-        //     $(".container").scroll();
-        // });
-
-        // Attribute changes - works: 
-        // $(".form-control").addClass("past");
-        // $(".form-control").addClass("present");
-        // $(".form-control").addClass("future");
-
-        // Test local storage
-        // Set storage
-
-        // form1
-
-        // Local Storage not working 
-        // var inputBtn = $(".btn").val();
-        // var inputForm = $(".form-control").text();
-
-        // $(inputBtn).click(function () {
-        //     event.preventDefault();
-        //     // Local Storage variable 1
-        //     var infoIn = inputForm;
-
-        //     if (infoIn === null) {
-
-        //         console.log("No value entered!");
-        //     } else {
-        //         var saveInfo = {
-        //             info: info,
-        //         }
-        //         console.log(saveInfo);
-        //         // Local Storage variable 2
-        //         var allInfo = localStorage.getItem("allInfo");
-
-        //         if (allInfo === null) {
-        //             allInfo = [];
-        //         } else {
-        //             allInfo = JSON.parse(allInfo);
-        //         }
-        //         allInfo.push(saveInfo);
-        //         // Local Storage variable 3
-        //         var newInfo = JSON.stringify(allInfo);
-
-        //         localStorage.setItem("allInfo", newInfo);
-        //     }
-        // });
-
+        // Start local
         var x = [9, 10, 11, 12, 1, 2, 3, 4, 5];
         // Test loop:
 
@@ -463,17 +95,6 @@
             // form - control
             $(".form" + x[i]).val(dataHour);
         }
-
-
-        // Wrap in 4 loop, add data attributes to all
-        // Put them at parent level
-        // Update dataNine to be index 
-        // Update form1 for class
-        // var dataNine = localStorage.getItem("9");
-        // // form-control
-        // $(".form1").val(dataNine);
-        // you can find element with 
-
 
         $(".saveBtn").click(function () {
             event.preventDefault();
@@ -485,41 +106,6 @@
 
 
         });
-
-
-
-        // var itemEntry = [];
-
-        // // localStorage.setItem("item", itemEntry);
-
-        // var inputForm = document.querySelector(".form-control");
-
-        // itemEntry = localStorage.getItem("item");
-
-        // var myObject = {
-        //     item: "memo"
-        // };
-
-
-
-        // var myObjectString = JSON.stringify(myObject);
-
-        // // localStorage.setItem("object-json", myObject);
-
-        // var itemEntryFromLocal = localStorage.getItem("item");
-
-        // itemEntry = JSON.parse(itemEntryFromLocal);
-
-        // itemEntry = JSON.parselocalStorage.getItem("item");
-
-
-        // submit
-
-        // Video example: 
-
-
-
-
 
     </script>
 </body>
