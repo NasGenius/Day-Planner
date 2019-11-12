@@ -2,9 +2,9 @@
 Homework-5 Day-Planner
 ## Jamie Morris Homework-5 Code Quiz
 
-* ['Day-Planner'](https://github.com/jamierachael/Day-Planner)
-* ['Day-Planner'](https://jamierachael.github.io/Day-Planner/)
-* ['Day-Planner'](https://drive.google.com/file/d/1YmGSNpY2jku-e4feAC4cVXLKLKZ9DaVV/view)
+* ['Day-Planner GitHub'](https://github.com/jamierachael/Day-Planner)
+* ['Day-Planner GitHub IO'](https://jamierachael.github.io/Day-Planner/)
+* ['Day-Planner Demo Video'](https://drive.google.com/file/d/1YmGSNpY2jku-e4feAC4cVXLKLKZ9DaVV/view)
 
 ### Summary
 * HTML and CSS and Javascript documents create a day planner with an eight-hour work day
